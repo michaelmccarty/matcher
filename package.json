@@ -1,0 +1,21 @@
+{
+  "name": "matcher",
+  "version": "1.0.0",
+  "description": "Matching using Node, Express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelmccarty/matcher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelmccarty/matcher/issues"
+  },
+  "homepage": "https://github.com/michaelmccarty/matcher#readme"
+}
