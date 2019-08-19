@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/michaelmccarty/matcher/issues"
   },
-  "homepage": "https://github.com/michaelmccarty/matcher#readme"
+  "homepage": "https://github.com/michaelmccarty/matcher#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
 }
