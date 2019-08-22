@@ -8,6 +8,8 @@
     <title>Matcher</title>
 
     <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -101,7 +103,7 @@
         <input type="radio" name="q10" value="5"> 5
     </div>
 
-    <input type="submit" class="submitButton">
+    <input type="submit" class="submit submitButton">
 </body>
 
 </html>
@@ -111,45 +113,57 @@
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
     // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
     // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
-  
-    $(".submit").on("click", function(event) {
-      event.preventDefault();
-  
-      // Here we grab the form elements
-      var newSurvey = {
-        name: $("#name").val(),
-        q1: $("#q1").val()
-      };
-      
-      
-      console.log(newSurvey);
-  
-      // This line is the magic. It"s very similar to the standard ajax function we used.
-      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-      // depending on if a tables is available or not.
-  
-      $.post("/api/friends", newSurvey,
-        function(data) {
-  
-          // If a table is available... tell user they are booked.
-          if (data) {
-            alert("Survey Submitted!");
-          }
-  
-          // If a table is available... tell user they on the waiting list.
-          else {
-            alert("");
-          }
-  
-          // Clear the form when submitting
-          $("#reserve-name").val("");
-          $("#reserve-phone").val("");
-          $("#reserve-email").val("");
-          $("#reserve-unique-id").val("");
-  
-        });
-  
+
+    $(".submitButton").on("click", function (event) {
+        event.preventDefault();
+        console.log("here");
+
+        // Here we grab the form elements
+        var newSurvey = {
+            name: $("#name").val(),
+            scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+            ]
+        };
+
+
+        console.log(newSurvey);
+
+        // This line is the magic. It"s very similar to the standard ajax function we used.
+        // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+        // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+        // depending on if a tables is available or not.
+
+        $.post("/api/friends", newSurvey,
+            function (data) {
+
+                // If a table is available... tell user they are booked.
+                if (data) {
+                    alert("Survey Submitted!");
+                }
+
+                // If a table is available... tell user they on the waiting list.
+                else {
+                    alert("");
+                }
+
+                // Clear the form when submitting
+                $("#reserve-name").val("");
+                $("#reserve-phone").val("");
+                $("#reserve-email").val("");
+                $("#reserve-unique-id").val("");
+
+            });
+
     });
-  
-  </script>
+
+</script>
