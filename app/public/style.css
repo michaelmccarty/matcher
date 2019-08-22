@@ -1,7 +1,8 @@
 .question {
-    background-color:red;
+    padding:20px;
+    padding-bottom:50px;
 }
-
-h1{
-    color:red;
+.submitButton{
+    width:150px;
+    border-width:2px;
 }
